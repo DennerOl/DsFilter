@@ -1,0 +1,15 @@
+header {
+  background-color: var(--dsf-color-bg-primary);
+  color: var(--dsf-color-font-primary);
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dsf-container-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
