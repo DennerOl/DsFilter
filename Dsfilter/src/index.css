@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 :root {
+  --dsf-color-bg-page: #c2c2c2;
 
   --dsf-color-bg-primary: #55bc04;
-
+  --dsf-color-bg-secondary: #fff;
 
   --dsf-color-font-primary: #fff;
+
+  --dsf-color-border: #c2c2c2;
+  --dsf-color-font-placeholder: #c2c2c2;
 
 }
 
@@ -22,4 +26,14 @@
   max-width: 980px;
   margin: 0px;
 
+}
+
+html,
+body {
+  background-color: var(--dsf-color-bg-page);
+
+}
+
+.dsf-mb20 {
+  margin-bottom: 20px;
 }
