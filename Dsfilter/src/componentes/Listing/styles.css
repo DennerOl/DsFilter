@@ -1,0 +1,25 @@
+.dsf-listing {
+  background-color: var(--dsf-color-bg-tertiary);
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.dsf-listing-product {
+  border: 1px solid var(--dsf-color-border-secondary);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.dsf-listing-product h3 {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--dsf-color-font-secondary);
+}
+
+.dsf-listing-product p {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dsf-color-font-tertiary);
+}
