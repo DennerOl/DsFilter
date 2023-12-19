@@ -2,13 +2,17 @@ import { useState } from 'react';
 import './styles.css'
 
 
+type Props = {
+  onSearch: Function;
+}
+
 type FormData = {
   minimo?: number,
   maximo?: number;
 
 }
 
-export default function Filter() {
+export default function Filter({ onSearch }: Props) {
 
   const [formData, setFormData] = useState<FormData>({
     minimo: undefined,
@@ -16,16 +20,16 @@ export default function Filter() {
 
   });
 
-  function handleInputChange(event: any) {
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
     const name = event.target.name;
     setFormData({ ...formData, [name]: value });
   }
 
-  function handleSubmit(event: any) {
+  function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    (formData.minimo || Number.MIN_VALUE),
-      (formData.maximo || Number.MAX_VALUE);
+    setFormData(formData);
+    onSearch(formData.minimo, formData.maximo);
 
 
   }
@@ -46,13 +50,13 @@ export default function Filter() {
 
             <input
               name="maximo"
-              value={formData.minimo || ""}
+              value={formData.maximo || ""}
               type="text"
               placeholder='Preço máximo'
               onChange={handleInputChange}
             />
 
-            <button className='dsf-button'> Filtrar</button>
+            <button type='submit' className='dsf-button'> Filtrar</button>
           </form>
 
         </div>
