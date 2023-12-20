@@ -15,12 +15,12 @@ export default function ListingBody() {
 
   const [products, setProducts] = useState<ProductDTO[]>([]);
 
-  const minPrice = 0;
-  const maxPrice = Number.MAX_VALUE;
+  const minNewPrice = 0;
+  const maxNewPrice = Number.MAX_VALUE;
 
   const [queryParams, setQueryParams] = useState<QueryParams>({
-    valueMin: minPrice,
-    valueMax: maxPrice
+    valueMin: minNewPrice,
+    valueMax: maxNewPrice
   });
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function ListingBody() {
     const newMin = min;
     const newMax = max;
 
-    setQueryParams({ valueMin: newMin || minPrice, valueMax: newMax || maxPrice });
+    setQueryParams({ valueMin: newMin || minNewPrice, valueMax: newMax || maxNewPrice });
   }
 
   return (
