@@ -3,6 +3,9 @@ import Listing from '../Listing';
 import { ProductDTO } from '../../models/product';
 import * as productService from '../../services/product-service';
 import Filter from '../Filter';
+import { ContextListingCount } from '../../utils/context-listing';
+import { useContext } from 'react';
+
 
 type QueryParams = {
   valueMin: number;
@@ -23,10 +26,13 @@ export default function ListingBody() {
     valueMax: maxNewPrice
   });
 
+  const { setContextListingCount } = useContext(ContextListingCount);
+
   useEffect(() => {
     const produtos = productService.findByPrice(queryParams.valueMin, queryParams.valueMax)
-
     setProducts(produtos);
+    setContextListingCount((produtos).length)
+
   }, [queryParams]);
 
   function handleSearch(min: number, max: number) {
@@ -41,7 +47,7 @@ export default function ListingBody() {
 
     <main>
 
-      <div>
+      <div >
         <Filter onSearch={handleSearch} />
         <Listing products={products} />
       </div>

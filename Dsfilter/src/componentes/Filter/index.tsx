@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './styles.css'
-
 
 type Props = {
   onSearch: Function;
@@ -20,6 +19,7 @@ export default function Filter({ onSearch }: Props) {
 
   });
 
+
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
     const name = event.target.name;
@@ -30,8 +30,6 @@ export default function Filter({ onSearch }: Props) {
     event.preventDefault();
     setFormData(formData);
     onSearch(formData.minimo, formData.maximo);
-
-
   }
 
   return (
@@ -55,8 +53,11 @@ export default function Filter({ onSearch }: Props) {
               placeholder='Preço máximo'
               onChange={handleInputChange}
             />
+            <div>
 
-            <button type='submit' className='dsf-button'> Filtrar</button>
+              <button type='submit' className='dsf-button'> Filtrar</button>
+            </div>
+
           </form>
 
         </div>
